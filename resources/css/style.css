@@ -1,0 +1,39 @@
+*, *::before, *::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+    font-family: Helvetica;
+}
+/* General Container Syles */
+header{
+    width: 100%;
+    margin: 0 auto; /*Center align */
+    max-width: 1500px; 
+}
+/* header */
+header{
+    display: flex;
+    border-style: solid;
+    border-color: blue;
+    align-items: center;
+    height: 120px;
+}
+.headerRight{
+    display: flex;
+}
+.imageContainerLogo{
+    border-style: solid;
+    border-color: green;
+    display: flex;
+    
+    max-height: 100%;
+    max-width: 100%;
+}
+.imageContainerLogo img{
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; /*To make sure the object maintains aspect ration*/
+} 
