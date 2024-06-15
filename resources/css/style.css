@@ -16,24 +16,35 @@ header{
 /* header */
 header{
     display: flex;
-    border-style: solid;
-    border-color: blue;
     align-items: center;
-    height: 120px;
+    height: 7.5rem;
+    justify-content: space-between;
+    border-bottom-style: solid;
+    border-color: #3D368C;
 }
-.headerRight{
+
+.headerLeft{
     display: flex;
-}
-.imageContainerLogo{
-    border-style: solid;
-    border-color: green;
-    display: flex;
-    
     max-height: 100%;
-    max-width: 100%;
+    max-width: 17%;
 }
-.imageContainerLogo img{
+.headerLeft img{
     max-width: 100%; 
     max-height: 100%; 
     object-fit: contain; /*To make sure the object maintains aspect ration*/
 } 
+.headerMiddle{
+    display: flex;
+    max-height: 100%;
+    max-width: 100%;
+}
+.headerMiddle img{
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain; /*To make sure the object maintains aspect ration*/
+}
+.headerRight{
+    display: flex;
+    gap: 1.5rem; /*To add spacing between elements*/
+    margin-right: 1rem;
+}
