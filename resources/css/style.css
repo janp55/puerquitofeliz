@@ -7,6 +7,20 @@ html{
     font-size: 16px;
     font-family: Helvetica;
 }
+
+
+/*Hamburger Menu settings: */
+:root{
+    --bar-width: 60px;
+    --bar-height: 12px;
+    --hamburger-gap: 6px;
+    --foreground: #333;
+    --background:white;
+    --hamburger-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
+}
+
 /* General Container Syles */
 header{
     width: 100%;
@@ -43,8 +57,31 @@ header{
     max-height: 100%; 
     object-fit: contain; /*To make sure the object maintains aspect ration*/
 }
-.headerRight{
+.headerRightDesktop ul{
     display: flex;
     gap: 1.5rem; /*To add spacing between elements*/
-    margin-right: 1rem;
+    list-style-type: none;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+.headerRightDesktop ul li a{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3D368C;
+}
+.headerRightMobile{
+    display: none;
+}
+
+
+
+/* Mobile */
+@media only screen and (max-width: 750px){/*600px*/
+    /* Header */
+    .headerRightDesktop{
+        display: none
+    }
+   
+
 }
