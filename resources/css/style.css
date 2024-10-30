@@ -7,7 +7,17 @@ html{
     font-size: 16px;
     font-family: Helvetica;
 }
-
+:root {
+    --bar-width: 60px;
+    --bar-height: 8px;
+    --hamburger-gap: 6px;
+    --foreground: #333;
+    --background: white;
+    --hamburger-margin: 8px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+    --x-width: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
+  }
 
 
 /* General Container Syles */
@@ -76,6 +86,7 @@ header{
         border: 2px solid green;
         flex-direction: column;
     }
+    /*Sidebar stuff*/
     .sidebar{
         position: fixed;
         top: 7.5rem;
@@ -91,9 +102,6 @@ header{
         justify-content: center;
 
     }
-    .headerRightMobile input[type="checkbox"]:checked ~ .sidebar {
-        display: flex; /* Show the sidebar when the checkbox is checked */
-    }
     .sidebar nav {
         display: flex;
         flex-direction: column;
@@ -104,6 +112,11 @@ header{
         font-size: 3.5rem;
         color: white;
     }
-   
+    /*To make sidebar appear*/
+    .headerRightMobile label:has(input[type="checkbox"]:checked) ~ .sidebar {
+        display: flex; /* Show the sidebar when the checkbox is checked */
+    }
+   /*Hamburger Menu stuff*/
+
 
 }
