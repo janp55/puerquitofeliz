@@ -16,7 +16,6 @@ html{
     --hamburger-margin: 8px;
     --animation-timing: 200ms ease-in-out;
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-    --x-width: calc(var(--bar-height)*3 + var(--hamburger-gap)*2);
   }
 
 
@@ -49,7 +48,6 @@ header{
     display: flex;
     max-height: 100%;
     max-width: 100%;
-    border: 2px solid yellow;
 }
 .headerMiddle img{
     max-width: 100%; 
@@ -111,74 +109,65 @@ header{
         font-size: 3.5rem;
         color: white;
     }
+    /*Hidding checkbox*/
+    input[type="checkbox"]{
+        display:none;
+    }
+   /*Hamburger Menu Container*/
+   .hamburger-menu {
+    position: relative;
+    width: var(--bar-width);
+    height: var(--hamburger-height);
+    cursor: pointer;
+   }
+
+    /* Hamburger Bars */
+    .hamburger-menu::before,
+    .hamburger-menu::after,
+    .hamburger-menu span {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: var(--bar-width);
+        height: var(--bar-height);
+        background-color: var(--foreground);
+        border-radius: var(--bar-height);
+        transition: all var(--animation-timing);
+        transform-origin: center;
+    }
+
+    /* Top Bar */
+    .hamburger-menu::before {
+        top: 0;
+    }
+
+    /* Middle Bar */
+    .hamburger-menu span {
+        top: calc((var(--hamburger-height) - var(--bar-height)) / 2);
+    }
+
+    /* Bottom Bar */
+    .hamburger-menu::after {
+        bottom: 0;
+    }
+
+
+    /* Transformations when Checked */
+    input[type="checkbox"]:checked + .hamburger-menu::before {
+        transform: translateY(calc(var(--hamburger-height) / 2 - var(--bar-height) / 2)) rotate(45deg);
+    }
+
+    input[type="checkbox"]:checked + .hamburger-menu::after {
+        transform: translateY(calc(-1 * (var(--hamburger-height) / 2 - var(--bar-height) / 2))) rotate(-45deg);
+    }
+
+    input[type="checkbox"]:checked + .hamburger-menu span {
+        opacity: 0;
+    }
     /*To make sidebar appear*/
-    .headerRightMobile label:has(input[type="checkbox"]:checked) ~ .sidebar {
+    input[type="checkbox"]:checked ~ .sidebar {
         display: flex; /* Show the sidebar when the checkbox is checked */
     }
-   /*Hamburger Menu stuff*/
-   .hamburger-menu{
-    display: flex;
-    flex-direction: column;
-    gap: var(--hamburger-gap);
-    width: max-content;
-    z-index: 2;
-    cursor: pointer;
-    position: relative;
-   }
-   .hamburger-menu input[type="checkbox"]{
-    cursor: pointer;
-   }
-   
-   .hamburger-menu:has(input:checked){/*Change variables when checkbox is checked*/
-    --foreground: green;
-    --background: pink;
-   }
-   /*mainly when navigating via keyboard*/
-   .hamburger-menu:has(input:focus-visible)::before,
-   .hamburger-menu:has(input:focus-visible)::after,
-   .hamburger-menu input:focus-visible{
-    border: 1px solid var(--background);
-    box-shadow: 0 0 0 1px var(--foreground);
-   }
-   /*static top and bottom bars*/
-   .hamburger-menu::before,
-   .hamburger-menu::after,
-   .hamburger-menu input{
-    content: "";
-    width: var(--bar-width);
-    height: var(--bar-height);
-    background-color: var(--foreground);
-    border-radius: 9999px;
-    transform-origin: left center;
-    transition: opacity var(--animation-timing),
-        width var(--animation-timing),
-        rotate var(--animation-timing),
-        translate var(--animation-timing),
-        background-color var(--animation-timing);
-   }
-   /*static middle bar*/
-   .hamburger-menu input{
-    appearance: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    pointer-events: none;
-   }
-   /*creating the x effect*/
-   .hamburger-menu:has(input:checked)::before{
-    rotate: 45deg;
-    width: var(--x-width);
-    translate:0 calc(var(--bar-height)/-2);
-   }
-   .hamburger-menu:has(input:checked)::after{
-    rotate: -45deg;
-    width: var(--x-width);
-    translate: 0 calc(var(--bar-height)/2);
-   }
-   .hamburger-menu input:checked{
-    opacity: 0;
-    width:0;
-   }
 
 
 
